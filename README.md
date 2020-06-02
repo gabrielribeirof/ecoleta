@@ -7,9 +7,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/languages/count/gabrielribeirof/ecoleta/backend">
+  <img src="https://img.shields.io/github/languages/count/gabrielribeirof/ecoleta">
 
-  <img src="https://img.shields.io/github/repo-size/gabrielribeirof/ecoleta/backend">
+  <img src="https://img.shields.io/github/repo-size/gabrielribeirof/ecoleta">
 
   <img src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
