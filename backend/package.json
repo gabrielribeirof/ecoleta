@@ -1,0 +1,8 @@
+{
+  "name": "ecoleta-backend",
+  "version": "0.1.0",
+  "description": "Community service where people find and advertise garbage collection locations",
+  "repository": "https://github.com/gabrielribeirof/ecoleta.git",
+  "author": "Gabriel Ribeiro <ogabrielribeirof@gmail.com>",
+  "license": "MIT"
+}
