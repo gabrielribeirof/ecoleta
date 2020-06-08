@@ -2,10 +2,6 @@
   <img alt="aircnc" width="250px" src=".github/logo.svg">
 </p>
 
-<h3 align="center">
-  ECOLETA
-</h3>
-
 <p align="center">
   :recycle: Community service where people find and advertise garbage collection locations
 </p>
