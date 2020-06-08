@@ -2,13 +2,30 @@ import { Request, Response } from 'express';
 import knex from '../database/connection';
 
 class PointController {
-  async index(req: Request, res: Response) {
+  async index(request: Request, res: Response) {
     const points = await knex('points').select('*');
 
     return res.json(points);
   }
 
-  async create(req: Request, res: Response) {
+  async show(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const point = await knex('points').where('id', id).first();
+
+    if(!point) {
+      return response.status(400).json({ message: 'Point not found.' });
+    }
+
+    const items = await knex('items')
+    .join('point_items', 'items.id', '=', 'point_items.item_id')
+    .where('point_items.point_id', id)
+    .select('items.title');
+
+    return response.json({ point, items });
+  }
+
+  async create(request: Request, response: Response) {
     const {
       name,
       email,
@@ -18,7 +35,7 @@ class PointController {
       latitude,
       longitude,
       items
-    } = req.body;
+    } = request.body;
 
     const trx = await knex.transaction();
 
@@ -37,7 +54,7 @@ class PointController {
     
     const point_id = insertedIds[0];
 
-    const pointItems = items.map((item_id: number) => {
+    const pointItems = items.map((item_id: Number) => {
       return {
         item_id,
         point_id
@@ -46,7 +63,7 @@ class PointController {
 
     await trx('point_items').insert(pointItems);
 
-    return res.json({
+    return response.json({
       id: point_id,
       ...point
     });
