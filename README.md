@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="aircnc" width="250px" src=".github/logo.svg">
+</p>
+
 <h3 align="center">
   ECOLETA
 </h3>
@@ -19,8 +23,12 @@
 ### :rocket: Technologies
 
 - [NodeJS](https://nodejs.org)
-- [NextJS](https://nextjs.org)
+- [ReactJS](https://reactjs.org)
 
 ### :clipboard: License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with :sparkling_heart: by Gabriel Ribeiro
