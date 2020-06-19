@@ -14,9 +14,17 @@ class PointController {
       .whereIn('point_items.item_id', parsedItems)
       .where('city', String(city))
       .where('state', String(state))
-      .distinct('points.*');
+      .distinct()
+      .select('points.*');
 
-    return response.json(points);
+    const serializedPoint = points.map(point => {
+      return {
+        ...point,
+        image_url: `${process.env.APP_URL}/uploads/${point.image}`
+      };
+    });
+
+    return response.json(serializedPoint);
   }
 
   async show(request: Request, response: Response) {
@@ -28,12 +36,17 @@ class PointController {
       return response.status(400).json({ message: 'Point not found.' });
     }
 
+    const serializedPoint = {
+      ...point,
+      image_url: `${process.env.APP_URL}/uploads/${point.image}`
+    };
+
     const items = await knex('items')
       .join('point_items', 'items.id', '=', 'point_items.item_id')
       .where('point_items.point_id', id)
       .select('items.title');
 
-    return response.json({ point, items });
+    return response.json({ point: serializedPoint, items });
   }
 
   async create(request: Request, response: Response) {
@@ -76,6 +89,8 @@ class PointController {
       });
 
     await trx('point_items').insert(pointItems);
+
+    await trx.commit();
 
     return response.json({
       id: point_id,
