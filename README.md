@@ -1,30 +1,62 @@
 <p align="center">
-  <img alt="aircnc" width="250px" src=".github/logo.svg">
+  <img width="250px" src=".github/logo.svg">
+</p>
+
+<h3 align="center">
+  Find and advertise garbage collection locations
+</h3>
+
+<p align="center">
+  :coffee: Study full-stack application
 </p>
 
 <p align="center">
-  :recycle: Community service where people find and advertise garbage collection locations
-</p>
+  <img src="https://img.shields.io/github/languages/count/gabrielribeirof/ecoleta?color=29a361&labelColor=322153">
 
-<p align="center">
-  <img src="https://img.shields.io/github/languages/count/gabrielribeirof/ecoleta">
+  <img src="https://img.shields.io/github/repo-size/gabrielribeirof/ecoleta?color=29a361&labelColor=322153">
 
-  <img src="https://img.shields.io/github/repo-size/gabrielribeirof/ecoleta">
-
-  <img src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <img src="https://img.shields.io/github/license/gabrielribeirof/ecoleta?color=29a361&labelColor=322153">
 </p>
 
 ---
 
-### :rocket: Technologies
+<img src=".github/screenshot.png">
 
-- [NodeJS](https://nodejs.org)
-- [ReactJS](https://reactjs.org)
+## :recycle: About
 
-### :clipboard: License
+The three applications (backend, web app and mobile app) were made on the Next Level Week, by [Rocketseat](https://rocketseat.com.br).
+
+
+## :computer: Backend
+ 
+A RESTful API created with [NodeJS](https://nodejs.org) and [Typescript](https://typescriptlang.com).
+
+Main technologies implemented in backend:
+
+|Name|Description|
+|---|---|
+|[Express](https://github.com/expressjs/express)|Standard server structure|
+|[SQLite](https://github.com/sqlite/sqlite)|Embedded database|
+|[Knex](https://github.com/knex/knex)|Query Builder|
+|[Multer](https://github.com/expressjs/multer)|File upload middleware|
+|[Celebrate](https://github.com/arb/celebrate)|Joi validation middleware|
+
+## :computer: Web
+
+A [React](https://reactjs.org) aplication with [Typescript](https://typescriptlang.com).
+
+## iphone Mobile
+
+This application has as plataform [React Native](https://reactnative.dev) and [Expo](https://expo.io) with [Typescript](https://typescriptlang.com).
+
+## :clipboard: License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 Made with :sparkling_heart: by Gabriel Ribeiro
+
+- [ReactJS](https://reactjs.org)
+- [React Native](https://facebook.github.io/react-native)
+- [Expo](https://expo.io/)
