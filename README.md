@@ -26,7 +26,6 @@
 
 The three applications (backend, web app and mobile app) were made on the Next Level Week, by [Rocketseat](https://rocketseat.com.br).
 
-
 ## :computer: Backend
  
 A RESTful API created with [NodeJS](https://nodejs.org) and [Typescript](https://typescriptlang.com).
@@ -43,11 +42,11 @@ Main technologies implemented in backend:
 
 ## :computer: Web
 
-A [React](https://reactjs.org) aplication with [Typescript](https://typescriptlang.com).
+A [React](https://reactjs.org) app with [Typescript](https://typescriptlang.com). Here it's possible make new collection points.
 
-## iphone Mobile
+## :iphone: Mobile
 
-This application has as plataform [React Native](https://reactnative.dev) and [Expo](https://expo.io) with [Typescript](https://typescriptlang.com).
+This application has as plataform [React Native](https://reactnative.dev) and [Expo](https://expo.io) with [Typescript](https://typescriptlang.com). Focused on searching for existing points on the map.
 
 ## :clipboard: License
 
@@ -56,7 +55,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Made with :sparkling_heart: by Gabriel Ribeiro
-
-- [ReactJS](https://reactjs.org)
-- [React Native](https://facebook.github.io/react-native)
-- [Expo](https://expo.io/)
