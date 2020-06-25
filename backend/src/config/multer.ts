@@ -1,4 +1,3 @@
-
 import multer from 'multer';
 import path from 'path';
 import crypto from 'crypto';
@@ -12,6 +11,6 @@ export default {
       const fileName = `${hash}-${file.originalname}`;
 
       callback(null, fileName);
-    }
+    },
   }),
 };

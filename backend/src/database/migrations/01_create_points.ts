@@ -1,7 +1,7 @@
 import Knex from 'knex';
 
 export function up(knex: Knex): Knex.SchemaBuilder {
-  return knex.schema.createTable('points', (table) => {
+  return knex.schema.createTable('points', table => {
     table.increments('id').primary();
     table.string('name').notNullable();
     table.string('image').notNullable();
