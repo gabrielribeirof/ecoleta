@@ -14,8 +14,11 @@
 	},
 	"plugins": ["@typescript-eslint"],
 	"rules": {
+		"camelcase": "off",
 		"import/prefer-default-export": "off",
+		"class-methods-use-this": "off",
 		"no-console": "off",
+		"arrow-parens": ["error", "as-needed"],
 		"import/extensions": [
 			"error", {
 				".ts": "never"
