@@ -1,10 +1,13 @@
+import {
+  View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Alert,
+} from 'react-native';
 import React, { useState, useEffect } from 'react';
-import Constants from 'expo-constants';
-import { Feather as Icon } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { SvgUri } from 'react-native-svg';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Feather as Icon } from '@expo/vector-icons';
+import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import api from '../../services/api';
 
@@ -57,7 +60,7 @@ const Points = () => {
 
       setInitialPosition([
         latitude,
-        longitude
+        longitude,
       ]);
     }
 
@@ -65,7 +68,7 @@ const Points = () => {
   }, []);
 
   useEffect(() => {
-    api.get('items').then(response => {
+    api.get('items').then((response) => {
       setItems(response.data);
     });
   }, []);
@@ -75,13 +78,10 @@ const Points = () => {
       params: {
         city: routeParams.city,
         state: routeParams.state,
-        items: selectedItems
-      }
-    }).then(response => {
+        items: selectedItems,
+      },
+    }).then((response) => {
       setPoints(response.data);
-    });
-    const teste = points.map(point => {
-      console.log(point)
     });
   }, [selectedItems]);
 
@@ -94,14 +94,14 @@ const Points = () => {
   }
 
   function handleSelectItem(id: number) {
-    const alreadySelected = selectedItems.findIndex(item => item === id);
+    const alreadySelected = selectedItems.findIndex((item) => item === id);
 
     if (alreadySelected >= 0) {
-      const filteredItems = selectedItems.filter(item => item !== id);
+      const filteredItems = selectedItems.filter((item) => item !== id);
 
       setSelectedItems(filteredItems);
     } else {
-      setSelectedItems([ ...selectedItems, id ]);
+      setSelectedItems([...selectedItems, id]);
     }
   }
 
@@ -117,8 +117,8 @@ const Points = () => {
 
         <View style={styles.mapContainer}>
           { initialPosition[0] !== 0 && (
-            <MapView 
-              style={styles.map} 
+            <MapView
+              style={styles.map}
               initialRegion={{
                 latitude: initialPosition[0],
                 longitude: initialPosition[1],
@@ -126,19 +126,19 @@ const Points = () => {
                 longitudeDelta: 0.014,
               }}
             >
-              {points.map(point => (
-                <Marker 
+              {points.map((point) => (
+                <Marker
                   key={String(point.id)}
                   style={styles.mapMarker}
                   onPress={() => handleNavigateToDetail(point.id)}
-                  coordinate={{ 
+                  coordinate={{
                     latitude: point.latitude,
-                    longitude: point.longitude, 
-                  }} 
+                    longitude: point.longitude,
+                  }}
                 >
                   <View style={styles.mapMarkerContainer}>
                     <Image style={styles.mapMarkerImage} source={{ uri: point.image_url }} />
-                    <Text style={styles.mapMarkerTitle}>{point.name}</Text>                
+                    <Text style={styles.mapMarkerTitle}>{point.name}</Text>
                   </View>
                 </Marker>
               ))}
@@ -148,17 +148,17 @@ const Points = () => {
       </View>
       <View style={styles.itemsContainer}>
         <ScrollView
-          horizontal 
+          horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 20 }}
         >
-          {items.map(item => (
-            <TouchableOpacity 
-              key={String(item.id)} 
+          {items.map((item) => (
+            <TouchableOpacity
+              key={String(item.id)}
               style={[
                 styles.item,
-                selectedItems.includes(item.id) ? styles.selectedItem : {}
-              ]} 
+                selectedItems.includes(item.id) ? styles.selectedItem : {},
+              ]}
               onPress={() => handleSelectItem(item.id)}
               activeOpacity={0.6}
             >
@@ -171,7 +171,6 @@ const Points = () => {
     </>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -208,7 +207,7 @@ const styles = StyleSheet.create({
 
   mapMarker: {
     width: 90,
-    height: 80, 
+    height: 80,
   },
 
   mapMarkerContainer: {
@@ -218,7 +217,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     borderRadius: 8,
     overflow: 'hidden',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   mapMarkerImage: {

@@ -1,10 +1,13 @@
+import {
+  View, StyleSheet, Text, Image, TouchableOpacity, SafeAreaView, Linking,
+} from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, StyleSheet, Text, Image, TouchableOpacity, SafeAreaView, Linking } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
-import api from '../../services/api';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Feather as Icon, FontAwesome } from '@expo/vector-icons';
 import * as MailComposer from 'expo-mail-composer';
+import api from '../../services/api';
 
 interface Params {
   point_id: number;
@@ -34,7 +37,7 @@ const Detail = () => {
   const routeParams = route.params as Params;
 
   useEffect(() => {
-    api.get(`points/${routeParams.point_id}`).then(response => {
+    api.get(`points/${routeParams.point_id}`).then((response) => {
       setData(response.data);
     });
   }, []);
@@ -66,15 +69,20 @@ const Detail = () => {
         </TouchableOpacity>
 
         <Image style={styles.pointImage} source={{ uri: data.point.image_url }} />
-      
+
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>
-          {data.items.map(item => item.title).join(', ')}
+          {data.items.map((item) => item.title).join(', ')}
         </Text>
 
         <View style={styles.address}>
           <Text style={styles.addressTitle}>Endereço</Text>
-          <Text style={styles.addressContent}>{data.point.city}, {data.point.state}</Text>
+          <Text style={styles.addressContent}>
+            {data.point.city}
+            ,
+            {' '}
+            {data.point.state}
+          </Text>
         </View>
       </View>
       <View style={styles.footer}>
@@ -119,13 +127,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     marginTop: 8,
-    color: '#6C6C80'
+    color: '#6C6C80',
   },
 
   address: {
     marginTop: 32,
   },
-  
+
   addressTitle: {
     color: '#322153',
     fontFamily: 'Roboto_500Medium',
@@ -136,7 +144,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto_400Regular',
     lineHeight: 24,
     marginTop: 8,
-    color: '#6C6C80'
+    color: '#6C6C80',
   },
 
   footer: {
@@ -145,9 +153,9 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 32,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
-  
+
   button: {
     width: '48%',
     backgroundColor: '#34CB79',
@@ -155,7 +163,7 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   buttonText: {
