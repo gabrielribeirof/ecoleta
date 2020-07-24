@@ -30,7 +30,7 @@ The three applications (backend, web app and mobile app) were made on the Next L
  
 A RESTful API created with [NodeJS](https://nodejs.org) and [Typescript](https://typescriptlang.com).
 
-Main technologies implemented in backend:
+:rocket: Main technologies implemented in backend:
 
 |Name|Description|
 |---|---|
